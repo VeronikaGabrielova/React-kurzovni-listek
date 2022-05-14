@@ -8,10 +8,11 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
+    assetModuleFilename: 'img/[name]-[hash:6].[ext]',
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    writeToDisk: true,
+    historyApiFallback: true,
+    static: path.join(__dirname, 'public'),
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -33,17 +34,9 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpe?g|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name]-[hash:6].[ext]',
-              outputPath: 'img',
-            },
-          },
-        ],
-      },
+        test: /\.(png|jpe?g|svg|gif)$/,
+        type: 'asset/resource'
+      }
     ],
   },
   plugins: [

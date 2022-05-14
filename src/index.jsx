@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Rate from './components/Rate';
 import './style.css';
 
@@ -34,4 +34,4 @@ const App = () => {
   );
 };
 
-render(<App />, document.querySelector('#app'));
+createRoot(document.querySelector('#app')).render(<App />);
