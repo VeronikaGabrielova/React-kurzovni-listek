@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import Rate from './components/Rate';
-import './style.css';
+import React, { useState } from "react";
+import { createRoot } from "react-dom/client";
+import Rate from "./components/Rate";
+import "./style.css";
 
 const App = () => {
-  const [currency, setCurrency] = useState('USD');
-
+  const [currency, setCurrency] = useState("USD");
   const handleCurrencyChange = (e) => {
     setCurrency(e.target.value);
   };
@@ -28,10 +27,10 @@ const App = () => {
             </select>
           </div>
         </form>
-        <Rate />
+        <Rate from={currency} />
       </div>
     </div>
   );
 };
 
-createRoot(document.querySelector('#app')).render(<App />);
+createRoot(document.querySelector("#app")).render(<App />);
